@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHealth Helper</title>
+    <link rel="icon" href="/assets/sidelogo.png" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/QuickGuidance/QuickGuidance.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/WelcomePage/WelcomePage.html">
+                    <img src="/assets/sidelogobar.png" alt="PetHealth AI Logo" />
+                </a>
+            </div>
+            <ul class="topbar">
+                <li><a href="/PetChat/PetChat.html">Chat</a></li>
+                <li><a href="/QuickGuidance/QuickGuidance.html">Guidance</a></li>
+                <li><a href="/ProfilePage/ProfilePage.html">Profile</a></li>
+                <li><a href="/SignIn/SignIn.html">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Quick Guidance Section -->
+    <div class="faq-section">
+        <div class="faq-header">
+            <h2>Quick Pet Health Guidance</h2>
+            <p class="faq-subtitle">Find quick answers to common pet health questions</p>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search pet health topics..." id="searchInput">
+        </div>
+
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-category="all">All Topics</button>
+            <button class="filter-tab" data-category="dogs">Dogs</button>
+            <button class="filter-tab" data-category="cats">Cats</button>
+            <button class="filter-tab" data-category="emergency">Emergency</button>
+            <button class="filter-tab" data-category="nutrition">Nutrition</button>
+            <button class="filter-tab" data-category="behavior">Behavior</button>
+        </div>
+
+        <!-- FAQ Cards Container -->
+        <div class="faq-cards-container" id="faqContainer">
+            <!-- FAQ cards will be populated by JavaScript -->
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <img src="your-image-path.png" alt="No Results" class="no-results-image">
+            <p>No results found.</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div class="modal-icon" id="modalIcon"></div>
+                <div class="modal-question" id="modalQuestion"></div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/QuickGuidance/QuickGuidance.js"></script>
+</body>
+</html>

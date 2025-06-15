@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHealth Helper</title>
+    <link rel="icon" href="/assets/sidelogo.png" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/ProfilePage/ProfilePage.css">
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/WelcomePage/WelcomePage.html">
+                    <img src="/assets/sidelogobar.png" alt="PetHealth AI Logo" />
+                </a>
+            </div>
+            <ul class="topbar">
+                <li><a href="/PetChat/PetChat.html">Chat</a></li>
+                <li><a href="/QuickGuidance/QuickGuidance.html">Guidance</a></li>
+                <li><a href="/ProfilePage/ProfilePage.html">Profile</a></li>
+                <li><a href="/SignIn/SignIn.html">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <aside class="profile-sidebar">
+            <div class="sidebar-content">
+                <h2 id="username-display">User Name</h2>
+                <p class="member-since">Member since: <span id="join-date">January 2023</span></p>
+                
+                <div class="pet-summary">
+                    <p>My Pets</p>
+                    <div class="pet-avatar-grid" id="pet-avatars">
+                        <!-- Pet avatars will be added here dynamically -->
+                    </div>
+                    <button class="add-pet-btn" id="add-pet-btn">+ Add Pet</button>
+                </div>
+                
+                <div class="sidebar-actions">
+                    <button class="edit-profile-btn" id="edit-profile-btn">Edit Profile</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="profile-content">
+            <section class="profile-section">
+                <div class="section-header">
+                    <h2>Personal Information</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Full Name</label>
+                        <p id="full-name">John Doe</p>
+                        <input type="text" id="full-name-input" class="edit-input" style="display: none;">
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p id="email">john.doe@example.com</p>
+                        <input type="email" id="email-input" class="edit-input" style="display: none;">
+                    </div>
+                </div>
+                <div class="action-buttons" id="personal-info-actions" style="display: none;">
+                    <button class="save-btn" id="save-personal-info">Save Changes</button>
+                    <button class="cancel-btn" id="cancel-personal-info">Cancel</button>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <div class="section-header">
+                    <h2>My Pets</h2>
+                    <button class="edit-btn" id="manage-pets-btn">Manage</button>
+                </div>
+                <div class="pets-list" id="pets-list">
+                    <!-- Pet cards will be added here dynamically -->
+                    <div class="no-pets" id="no-pets-message">
+                        <p>You haven't added any pets yet.</p>
+                        <button class="add-pet-btn" id="add-pet-btn-main">+ Add Your First Pet</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="edit-profile-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-profile-modal">&times;</span>
+            <h2>Edit Profile</h2>
+            
+            <div class="tab-navigation">
+                <button class="tab-button active" data-tab="personal">Personal Info</button>
+                <button class="tab-button" data-tab="security">Security</button>
+            </div>
+            
+            <!-- Personal Info Tab -->
+            <div class="tab-content active" id="personal-tab">
+                <form id="edit-profile-form">
+                    <div class="form-group">
+                        <label for="profile-full-name">Full Name</label>
+                        <input type="text" id="profile-full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-email">Email</label>
+                        <input type="email" id="profile-email" required>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Security Tab -->
+            <div class="tab-content" id="security-tab">
+                <form id="change-password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required minlength="8">
+                        <small class="form-help">Password must be at least 8 characters long</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" id="cancel-edit-profile">Cancel</button>
+                <button type="button" class="save-btn" id="save-profile-changes">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Pet Modal -->
+    <div class="modal" id="add-pet-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Pet</h2>
+            <form id="add-pet-form">
+                <div class="form-group">
+                    <label for="pet-name">Pet Name</label>
+                    <input type="text" id="pet-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="pet-type">Pet Type</label>
+                    <select id="pet-type" required>
+                        <option value="">Select...</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="bird">Bird</option>
+                        <option value="fish">Fish</option>
+                        <option value="reptile">Reptile</option>
+                        <option value="small-mammal">Small Mammal</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pet-breed">Breed (optional)</label>
+                    <input type="text" id="pet-breed">
+                </div>
+                <div class="form-group">
+                    <label for="pet-age">Age</label>
+                    <input type="number" id="pet-age" min="0" max="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="pet-weight">Weight (kg/lbs)</label>
+                    <input type="number" id="pet-weight" min="0" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="pet-gender">Gender</label>
+                    <select id="pet-gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pet-photo">Upload Photo (optional)</label>
+                    <input type="file" id="pet-photo" accept="image/*">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="cancel-add-pet">Cancel</button>
+                    <button type="submit" class="save-btn">Save Pet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/ProfilePage/ProfilePage.js"></script>
+</body>
+</html>

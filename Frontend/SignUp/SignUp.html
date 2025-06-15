@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PetHealth AI</title>
+    <link rel="icon" href="/assets/sidelogo.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/SignUp/SignUp.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="logo">
+                <img src="/assets/sidelogo.png" alt="PetHealth Helper" />
+                <h1>PETHEALTH HELPER</h1>
+            </div>
+
+            <div class="welcome-content">
+                <h2>Sign Up!</h2>
+                <p>
+                    Welcome to PetHealth Helper! Your AI-powered pet care assistant is here to provide
+                    first-aid guidance for minor pet health emergencies. Remember, this chatbot does not
+                    replace a veterinarian for serious concerns. Always consult a professional. Enjoy
+                    exploring our features!
+                </p>
+                <div class="mascot">
+                    <img src="/assets/Catmascot.png" alt="Cat Mascot" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="form-container">
+                <h2>Create Account</h2>
+
+                <form id="signupForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lastName">Last Name*</label>
+                            <input type="text" id="lastName" name="lastName" required />
+                            <span class="error-message" id="lastName-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">First Name*</label>
+                            <input type="text" id="firstName" name="firstName" required />
+                            <span class="error-message" id="firstName-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">Middle Name</label>
+                            <input type="text" id="middleName" name="middleName" required />
+                            <span class="error-message" id="middleName-error"></span>
+                        </div>
+                        <div class="form-group small">
+                            <label for="ext">Ext.</label>
+                            <select id="ext" name="ext">
+                                <option value="" selected>None</option>
+                                <option value="Jr.">Jr.</option>
+                                <option value="Sr.">Sr.</option>
+                                <option value="II">II</option>
+                                <option value="III">III</option>
+                                <option value="IV">IV</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" name="email" required />
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username*</label>
+                        <input type="text" id="username" name="username" required />
+                        <span class="error-message" id="username-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password*</label>
+                        <div class="password-container">
+                            <input type="password" id="password" name="password" required />
+                            <button type="button" id="passwordToggle" class="password-toggle hidden">
+                                <img src="/assets/eye.png" alt="Show" class="eye-open" />
+                                <img src="/assets/eye-off.png" alt="Hide" class="eye-close" />
+                            </button>
+                        </div>
+                        <span class="error-message" id="password-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password*</label>
+                        <div class="password-container">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required />
+                            <button type="button" id="confirmPasswordToggle" class="password-toggle hidden">
+                                <img src="/assets/eye.png" alt="Show" class="eye-open" />
+                                <img src="/assets/eye-off.png" alt="Hide" class="eye-close" />
+                            </button>
+                        </div>
+                        <span class="error-message" id="confirmPassword-error"></span>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <div class="checkbox">
+                            <input type="checkbox" id="terms" name="terms" required />
+                            <label for="terms">
+                                I Agree with
+                                <a href="#" id="openTerms">Terms &amp; Conditions</a>
+                            </label>
+                        </div>
+                        <span class="error-message" id="terms-error"></span>
+                        <div class="checkbox">
+                            <input type="checkbox" id="privacy" name="privacy" required />
+                            <label for="privacy">
+                                I Agree with
+                                <a href="#" id="openPrivacy">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <span class="error-message" id="privacy-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Continue</button>
+
+                    <div class="login-link">
+                        Already have account? <a href="/SignIn/SignIn.html">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="termsClose">&times;</span>
+            <h2>Terms &amp; Conditions</h2>
+            <p>
+                By using PetHealth Helper, you agree to the following terms and conditions:
+                <br><br>
+                1. PetHealth Helper is an AI-powered assistant designed to provide basic pet health information and first-aid guidance for minor pet health concerns.
+                <br><br>
+                2. The information provided through our service is for general informational purposes only and is not intended to replace professional veterinary advice, diagnosis, or treatment.
+                <br><br>
+                3. Always consult with a qualified veterinarian regarding any questions or concerns about your pet's health condition.
+                <br><br>
+                4. PetHealth Helper is not liable for any decisions made based on the information provided through our service.
+                <br><br>
+                5. Your personal information will be handled in accordance with our Privacy Policy.
+            </p>
+            <div class="modal-button-container">
+                <button id="agreeTerms" class="btn-agree">I Agree</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="privacyClose">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>
+                PetHealth Helper is committed to protecting your privacy:
+                <br><br>
+                1. We collect personal information such as your name, email address, and information about your pets to provide and improve our service.
+                <br><br>
+                2. Your information is stored securely and will not be shared with third parties without your consent, except as required by law.
+                <br><br>
+                3. We use cookies and similar technologies to enhance your experience and analyze usage patterns.
+                <br><br>
+                4. You have the right to access, correct, or delete your personal information at any time.
+                <br><br>
+                5. By using PetHealth Helper, you consent to the collection and use of information as described in this Privacy Policy.
+            </p>
+            <div class="modal-button-container">
+                <button id="agreePrivacy" class="btn-agree">I Agree</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/SignUp/SignUp.js"></script>
+</body>
+</html>

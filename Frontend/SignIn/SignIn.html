@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHealth AI</title>
+    <link rel="icon" href="/assets/sidelogo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/SignIn/SignIn.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <div class="logo">
+                <img src="/assets/Pethealthlogo.png" alt="PetHealth AI Logo">
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <p>E-mail Address</p>
+                    <input type="text" id="username" placeholder="Enter your email" required>
+                    <span class="error-message" id="username-error"></span>
+                </div>
+                <div class="form-group password-container">
+                    <p>Password</p>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <button type="button" id="passwordToggle" class="password-toggle hidden">
+                        <img src="/assets/eye.png" alt="Show" class="eye-open" />
+                        <img src="/assets/eye-off.png" alt="Hide" class="eye-close" />
+                    </button>
+                    <span class="error-message" id="password-error"></span>
+                </div>
+                <div class="forgot-password">
+                    <a href="/ForgotPassword/ForgotPassword.html">Forgot Password?</a>
+                </div>
+                <button type="submit" id="login-btn">Sign In</button>
+                <div class="signup-link">
+                    <span>Don't have an account? </span><a href="/SignUp/SignUp.html">Sign Up!</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/SignIn/SignIn.js"></script>
+</body>
+</html>
